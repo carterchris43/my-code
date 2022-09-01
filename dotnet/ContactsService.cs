@@ -11,9 +11,9 @@ namespace // proprietary code removed //
 {
     public class ContactsService : IContactsService
     {
-        // proprietary code removed // _data = null;
+        /* proprietary code removed */ _data = null;
 
-        public ContactsService(// proprietary code removed // data)
+        public ContactsService(/* proprietary code removed */ data)
         {
             _data = data;
         }
@@ -23,7 +23,7 @@ namespace // proprietary code removed //
             string procName = "[dbo].[Contacts_Insert]";
             int id = 0;
 
-            _data.// proprietary code removed //(procName, // proprietary code removed //: delegate (SqlParameterCollection col)
+            _data./* proprietary code removed */(procName, /* proprietary code removed */: delegate (SqlParameterCollection col)
             {
                 AddCommonParams(model, col);
                 col.AddWithValue("@CreatedBy", userId);
@@ -33,7 +33,7 @@ namespace // proprietary code removed //
 
                 col.Add(idOut);
             },
-            // proprietary code removed //: delegate (SqlParameterCollection returnCollection)
+            /* proprietary code removed */: delegate (SqlParameterCollection returnCollection)
             {
                 object oId = returnCollection["@Id"].Value;
                 int.TryParse(oId.ToString(), out id);
@@ -45,13 +45,13 @@ namespace // proprietary code removed //
         public void Update(ContactUpdateRequest model, int userId)
         {
             string procName = "[dbo].[Contacts_Update]";
-            _data.// proprietary code removed //(procName, inputParamMapper: delegate (SqlParameterCollection col)
+            _data./* proprietary code removed */(procName, /* proprietary code removed */: delegate (SqlParameterCollection col)
             {
                 AddCommonParams(model, col);
                 col.AddWithValue("@CreatedBy", userId);
                 col.AddWithValue("@Id", model.Id);
             },
-            // proprietary code removed //: null);
+            /* proprietary code removed */: null);
         }
 
         public Paged<Contact> Get(int userId, int pageIndex, int pageSize)
@@ -63,7 +63,7 @@ namespace // proprietary code removed //
 
             string procName = "[dbo].[Contacts_Select_ByCreatedBy]";
 
-            _data.ExecuteCmd(procName, delegate (SqlParameterCollection paramCollection)
+            _data./* proprietary code removed */(procName, delegate (SqlParameterCollection paramCollection)
             {
                 paramCollection.AddWithValue("@PageIndex", pageIndex);
                 paramCollection.AddWithValue("@PageSize", pageSize);
@@ -75,7 +75,7 @@ namespace // proprietary code removed //
                 Contact contact = MapSingleContact(reader, ref idx);
                 if(totalCount == 0)
                 {
-                    totalCount = reader.GetSafeInt32(idx++);
+                    totalCount = reader./* proprietary code removed */(idx++);
                 }
                 if (list == null)
                 {
@@ -100,7 +100,7 @@ namespace // proprietary code removed //
 
             string procName = "[dbo].[Contacts_Search]";
 
-            _data.ExecuteCmd(procName, delegate (SqlParameterCollection paramCollection)
+            _data./* proprietary code removed */(procName, delegate (SqlParameterCollection paramCollection)
             {
                 paramCollection.AddWithValue("@PageIndex", pageIndex);
                 paramCollection.AddWithValue("@PageSize", pageSize);
@@ -113,7 +113,7 @@ namespace // proprietary code removed //
                 Contact contact = MapSingleContact(reader, ref idx);
                 if (totalCount == 0)
                 {
-                    totalCount = reader.GetSafeInt32(idx++);
+                    totalCount = reader./* proprietary code removed */(idx++);
                 }
                 if (list == null)
                 {
@@ -132,11 +132,11 @@ namespace // proprietary code removed //
         public void Delete(int id)
         {
             string procName = "[dbo].[Contacts_Delete_ById]";
-            _data.// proprietary code removed //(procName, // proprietary code removed //: delegate (SqlParameterCollection col)
+            _data./* proprietary code removed */(procName, /* proprietary code removed */: delegate (SqlParameterCollection col)
             {
                 col.AddWithValue("@Id", id);
             },
-            // proprietary code removed //: null);
+            /* proprietary code removed */: null);
         }
 
         private static void AddCommonParams(ContactAddRequest model, SqlParameterCollection col)
@@ -152,13 +152,13 @@ namespace // proprietary code removed //
         {
             Contact aContact = new Contact();
 
-            aContact.Id = reader.GetSafeInt32(startingIndex++);
-            aContact.Name = reader.GetSafeString(startingIndex++);
-            aContact.AvatarUrl = reader.GetSafeString(startingIndex++);
-            aContact.Email = reader.GetSafeString(startingIndex++);
-            aContact.Phone = reader.GetSafeString(startingIndex++);
-            aContact.Notes = reader.GetSafeString(startingIndex++);
-            aContact.CreatedBy = reader.GetSafeInt32(startingIndex++);
+            aContact.Id = reader./* proprietary code removed */(startingIndex++);
+            aContact.Name = reader./* proprietary code removed */(startingIndex++);
+            aContact.AvatarUrl = reader./* proprietary code removed */(startingIndex++);
+            aContact.Email = reader./* proprietary code removed */(startingIndex++);
+            aContact.Phone = reader./* proprietary code removed */(startingIndex++);
+            aContact.Notes = reader./* proprietary code removed */(startingIndex++);
+            aContact.CreatedBy = reader./* proprietary code removed */(startingIndex++);
 
             return aContact;
         }
