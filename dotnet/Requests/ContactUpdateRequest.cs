@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Models.Requests.Contacts
+namespace /*removed*/.Models.Requests.Contacts
 {
     public class ContactUpdateRequest : ContactAddRequest, IModelIdentifier
     {

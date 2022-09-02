@@ -1,9 +1,8 @@
-﻿using Sabio.Models;
-using Sabio.Models.Domain;
-using Sabio.Models.Requests.Contacts;
+﻿/*removed*/
+using /*removed*/.Models.Requests.Contacts;
 using System.Collections.Generic;
 
-namespace Sabio.Services.Interfaces
+namespace /*removed*/.Services.Interfaces
 {
     public interface IContactsService
     {

@@ -1,9 +1,4 @@
-﻿using Sabio.Data;
-using Sabio.Data.Providers;
-using Sabio.Models;
-using Sabio.Models.Domain;
-using Sabio.Models.Requests.Contacts;
-using Sabio.Services.Interfaces;
+﻿/*removed*/
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Services
+namespace /*removed*/.Services
 {
     public class ContactsService : IContactsService
     {
